@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>My Slack</title>
+</head>
+<style>
+@import "https://unpkg.com/open-props@1.6.17/easings.min.css";
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.search img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.header-text{
+    cursor: pointer;
+}
+
+.header-text span img{
+    width: 10px;
+    height: 10px;
+}
+.search{
+    margin-left: 150px;
+}
+
+.header-text span{
+    font-size: 15px;
+    margin-left: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.button-header{
+    border: solid;
+    width: 140px;
+    height: 40px;
+    display: flex;
+    justify-content: center; /* Горизонтальное выравнивание */
+    align-items: center;
+    border-radius: 5px; 
+    border-width: 2px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.talk-to-sales{
+    border-color: purple;
+    margin-left: 30px;
+    transition: border-width 0.2s ease;
+}
+
+.talk-to-sales:hover{
+    border-width: 3px;
+}
+
+.talk-to-sales span{
+    margin-bottom: 5px;
+    color: purple;
+}
+
+.get-started{
+    background-color: rgb(99, 7, 99);
+    border-color: rgb(99, 7, 99);
+    transition: ease 0.3s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.get-started.hover{
+    background-color: rgb(78, 7, 78);
+    border-color: rgb(78, 7, 78);
+}
+
+.get-started:active,
+.get-started:focus {
+    outline: none; /* Убираем фокус */
+    background-color: rgb(78, 7, 78); /* Цвет фона при нажатии */
+}
+
+.get-started span{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.buttons-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.title{
+    text-align: center;
+}
+
+.title h1{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title h1 span{
+    color: rgb(169, 9, 169);
+}
+
+.title{
+    height: 120px;
+}
+
+.some-words .get-started{
+    margin-top: -32px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 170px;
+    height: 50px;
+}
+
+.other-text{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.other-text span{
+    font-size: 20px;
+}
+
+.bold-text{
+    font-weight: bold;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.images{
+    display: flex;
+    align-items: center;  
+    justify-content: space-between; /* Равные отступы между изображениями */
+    width: 57%;
+}
+
+.video-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.big-text{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.big-text h1{
+    font-size: 50px;
+    width: 1072px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.part-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.part-row span{
+    margin-left: 10px;
+}
+
+*{
+    user-select: none;
+}
+
+@media screen and (max-width: 600px) {
+    .buttons-header, .header-text{
+        display: none;
+    }
+
+    .search{
+        margin-left: auto;
+    }
+
+   .header{
+    margin-top: 0;
+   } 
+
+   .title h1{
+    font-size: 30px;
+   }
+
+   .title{
+    height: 80px;
+   }
+
+   .o-comp-container{
+    display: none;
+   }
+
+   .images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   }
+
+   .images img{
+    padding: 10px;
+   }
+
+   .video-container{
+    display: none;
+   }
+   .slack-android-container{
+    margin-top: 50px;
+   }
+
+   .slack-android-btn{
+    display: flex;
+    justify-content: center;
+   }
+
+    .button-slack-android{
+        display: flex;
+        width: 190px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(248, 248, 80);
+        transition: ease 0.2s;
+   }
+
+   .image-container{
+    margin-top: 30px;
+   }
+}
+
+@media screen and (min-width: 1024px){
+    .get-started:hover{
+        background-color: rgb(78, 7, 78);
+        border-color: rgb(78, 7, 78);
+    }
+}
+
+@keyframes glow {
+    50% {
+      box-shadow: 0 0 40px rgb(248, 248, 80);
+    }
+}
+
+@keyframes glitch {
+    50% {
+      transform: skew(180deg);
+    }
+}
+
+.glow-effect{
+    animation: glow 0.5s infinite;
+}
+
+.glitch-effect{
+    animation: glitch 0.5s infinite;
+}
+</style>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://a.slack-edge.com/3d92b39/marketing/img/nav/slack-salesforce-logo-nav-black.png" alt="">
+        </div>
+        <div class="header-text features">
+            <span>Features <img src="static/img/arrow-down.png" alt=""></span>
+        </div>
+        <div class="header-text solutions">
+            <span>Solutions <img src="static/img/arrow-down.png" alt=""></span>
+        </div>
+        <div class="header-text enterprise">
+            <span>Enterprise</span>
+        </div>
+        <div class="header-text resources">
+            <span>Resources <img src="static/img/arrow-down.png" alt=""></span>
+        </div>
+        <div class="header-text pricing">
+            <span>Pricing</span>
+        </div>
+        <div class="search">
+            <img src="static/img/lupa.png" alt="">
+        </div>
+        <div class="header-text sign-in">
+            <span>Sign in</span>
+        </div>
+        <div class="buttons-header">
+            <div class="button-header talk-to-sales">
+                <span class="white-btn">TALK TO SALES</span>
+            </div>
+            <div class="button-header get-started">
+                <span class="purple-btn">GET STARTED</span>
+            </div>
+        </div>
+    </div>
+    <div class="some-words">
+        <div class="title">
+            <h1 class="animate__animated animate__backInRight">Where <span class="purple-text">work</span> happens</h1>
+        </div>
+        <div class="button-header get-started second">
+            <span class="purple-btn" anim="glitch">GET STARTED</span>
+        </div>
+        <div class="other-text">
+            <span><span class="bold-text">Slack is free to try</span> for as long as you’d like</span>
+        </div>
+    </div>
+    <div class="slack-android-container">
+        <div class="title">
+            <h1>Made for people. Built for productivity.</h1>
+        </div>
+        <div class="slack-android-btn">
+            <div class="button-slack-android" anim="glitch">SLACK FOR ANDROID</div>
+        </div>
+    </div>
+    <div class="image-container">
+        <div class="images">
+            <img src="https://a.slack-edge.com/a4c4a15/marketing/img/homepage/true-prospects/revamp-exp/logos/logo-airbnb-small.png" alt="" id="airbnb">
+            <img src="https://a.slack-edge.com/a4c4a15/marketing/img/homepage/true-prospects/revamp-exp/logos/logo-nasa-small.png" alt="" id="nasa">
+            <img src="https://a.slack-edge.com/a4c4a15/marketing/img/homepage/true-prospects/revamp-exp/logos/logo-uber-small.png" alt="" id="uber">
+            <img src="https://a.slack-edge.com/a4c4a15/marketing/img/homepage/true-prospects/revamp-exp/logos/logo-target-small.png" alt="">
+            <img src="https://a.slack-edge.com/a4c4a15/marketing/img/homepage/true-prospects/revamp-exp/logos/logo-nyt-small.png" alt="">
+            <img src="https://a.slack-edge.com/a4c4a15/marketing/img/homepage/true-prospects/revamp-exp/logos/logo-etsy-small.png" alt="">
+        </div>
+    </div>
+    <div class="video-container">
+        <video width="900" height="544">
+            <source type="video/webm" src="https://a.slack-edge.com/1023c55/marketing/img/homepage/revamped-24/hero/hp-hero.en-GB@2x.webm">
+            <source type="video/mp4" src="https://a.slack-edge.com/1023c55/marketing/img/homepage/revamped-24/hero/hp-hero.en-GB@2x.mp4">
+        </video>
+    </div>
+    <div class="o-comp-container">
+        <div class="big-text">
+            <h1>Your people, projects, apps, and AI, all on the world’s most beloved work operating system.        </h1>
+        </div>
+        <div class="row">
+            <div class="part-row">
+                <img src="static/img/clap.png" alt="" width="20px" height="20px">
+                <span>COLLABORATION</span>
+            </div>
+            <div class="part-row">
+                <img src="static/img/notes.png" alt="" width="20px" height="20px">
+                <span>PROJECT MANAGEMENT</span>
+            </div>
+            <div class="part-row">
+                <img src="static/img/lighting.png" alt="" width="20px" height="20px">
+                <span>INTEGRATIONS</span>
+            </div>
+            <div class="part-row">
+                <img src="static/img/sparks.png" alt="" width="20px" height="20px">
+                <span>SLACK AI</span>
+            </div>
+        </div>
+    </div>
+    <script>const mediaQuery = window.matchMedia('(max-width: 600px)');
+
+// Функция, которая будет вызываться при изменении состояния медиа-запроса
+function handleMediaQuery(event) {
+    if (event.matches) {
+        setMobile();
+    } else {
+        setDesktop();
+    }
+}
+
+function setMobile() {
+    const slack_android = document.querySelector('.button-slack-android')
+
+    slack_android.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        slack_android.style.backgroundColor = 'rgb(224, 224, 77)';
+        slack_android.classList.add('glow-effect');
+    });
+
+    slack_android.addEventListener('touchend', () => {
+        slack_android.style.backgroundColor = 'rgb(248, 248, 80)';
+        slack_android.classList.remove('glow-effect');
+    })
+}
+
+function setDesktop() {
+    document.querySelector('.slack-android-container').style.display = 'none';
+
+    const get_started_btn = document.querySelector('.some-words .get-started')
+    get_started_btn.addEventListener('mouseenter', () => {
+        get_started_btn.classList.add('glitch-effect');
+    })
+
+    get_started_btn.addEventListener('mouseout', () => {
+        get_started_btn.classList.remove('glitch-effect');
+    })
+}
+
+handleMediaQuery(mediaQuery);
+
+mediaQuery.addEventListener('change', handleMediaQuery);
+</script>
+</body>
+</html>
